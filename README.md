@@ -90,22 +90,22 @@ sourcetype="wifi_csv" wlan_fc_type_subtype="0x000c"
 **Deauth spikes per second (line chart)**  
 This search isolates only deauthentication frames (`0x000c`) and charts them per second.  
 
-\`\`\`spl
+```spl
 sourcetype="wifi_csv" wlan_fc_type_subtype="0x000c"
-| timechart span=1s count AS deauths
-\`\`\`
+| timechart span=1s count AS 0x000c
+```
 
 ![Deauth Only Line Chart](./10A-Splunk-Deauth-Line-Chart.png) 
 
 **All management subtypes over time (line chart comparison)**  
-This search charts all 802.11 management frame subtypes per second, allowing deauths (`0x000c`) to be compared against beacon, authentication, association, etc.  
+This search charts all 802.11 management frame subtypes per second, allowing deauths (`0x000c`), represented by the pink line, to be compared against beacon, authentication, association, etc.  
 
-\`\`\`spl
+```spl
 sourcetype="wifi_csv"
 | eval epoch = coalesce(frame_time_epoch, 'frame.time_epoch')
 | eval _time = tonumber(epoch)
 | timechart span=1s count BY wlan_fc_type_subtype
-\`\`\`
+```
 
 ![Deauth Only Line Chart Alt](./10B-Splunk-Deauth-Line-Chart.png)  
 
