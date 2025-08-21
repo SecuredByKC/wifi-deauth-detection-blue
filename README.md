@@ -157,7 +157,7 @@ The result will be a clear **Incident Summary** that describes the attack timeli
 
 This project is for **educational purposes only**.  
 All captures were performed on my own wifi network.  
-Never monitor or analyze traffic without explicit permission.  
+Never monitor or analyze traffic without explicit permission.
 
 ---
 
