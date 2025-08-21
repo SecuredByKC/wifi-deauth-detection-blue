@@ -24,7 +24,7 @@ The exercise highlights how defenders can ingest packet captures, query for 802.
 - **Wi-Fi Adapter:** ALFA AWUS036ACM (monitor mode capable, USB passthrough)  
 - **Tools (Blue VM):** `airodump-ng`, `tshark`, `Splunk Enterprise 10`
 - **Tools (Red Team):** `airmon-ng`, `airodump-ng`, `aireplay-ng`, `aircrack-ng`
-- **Dataset:** PCAP capture converted to CSV for Splunk ingestion  
+- **Dataset:** CAP capture converted to CSV for Splunk ingestion  
 
 ---
 
@@ -41,7 +41,7 @@ sudo airodump-ng -c 6 --bssid <TARGET_BSSID> -w blueteam_capture wlan0mon
 
 ---
 
-### 2) Convert PCAP → CSV (for Splunk)
+### 2) Convert CAP → CSV (for Splunk)
 Convert the `.cap` into a compact CSV using 'tshark' with relevant 802.11 fields so Splunk can ingest and search quickly.
 
 ```bash
@@ -51,7 +51,7 @@ tshark -r blueteam_capture-02.cap   -T fields   -e frame.time_epoch   -e wlan.fc
 - `frame.time_epoch` → becomes `_time` in Splunk (epoch seconds)  
 - `wlan.fc.type_subtype` → **`0x000c` = deauth**
 
-![Convert PCAP to CSV](./02-Convert-To-CSV-Splunk.png)
+![Convert CAP to CSV](./02-Convert-To-CSV-Splunk.png)
 
 ---
 
