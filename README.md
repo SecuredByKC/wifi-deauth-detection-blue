@@ -1,4 +1,4 @@
-# Wi-Fi Deauth Detection (Blue Team) 🛡️📡
+# Wi-Fi Deauth Detection (Blue Team) 🔵📡
 ![Kali Linux](https://img.shields.io/badge/Tested%20On-Kali%20Linux%202025.1-blue?logo=kalilinux)
 ![VMware](https://img.shields.io/badge/Platform-VMware%20Workstation-lightgrey?logo=vmware)
 ![Splunk](https://img.shields.io/badge/Tool-Splunk%20Enterprise-green?logo=splunk)
