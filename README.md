@@ -116,11 +116,9 @@ Switching the visualization to *Column → Stacked* makes it easier to see relat
 
 ---
 
-## 🖥️ VMware & Hardware Notes
-
-- **USB Passthrough:** ALFA AWUS036ACM attached directly to the Blue VM for monitor mode.  
-- **Networking:** VMs on **NAT** for package updates; the Wi-Fi adapter is passed as USB (not bridged).  
-- **Driver Support:** Ensure chipset/driver support in Kali so monitor mode works reliably.
+> 📝 **Note:** While Wireshark could have been used to easily detect deauthentication frames (via filters like `wlan.fc.type_subtype == 0x0c`), the purpose of this Blue Team lab was different.  
+>  
+> The goal was to capture wireless management traffic with `airodump-ng`, convert it into structured data, and ingest it into **Splunk**. This approach allowed for time-based visualizations, baselining, and repeatable queries — making it more representative of a real defensive monitoring workflow rather than a one-off packet analysis.
 
 ---
 
@@ -128,7 +126,7 @@ Switching the visualization to *Column → Stacked* makes it easier to see relat
 
 - Built a **defensive workflow** to detect abnormal 802.11 deauth traffic in Splunk.  
 - Verified deauth with `wlan_fc_type_subtype="0x000c"` and visualized **per-second spikes**.  
-- Summarized **attack windows**, APs (BSSIDs), and targeted stations.  
+- Summarized **attack windows**  
 - Complements the offensive lab in **[wifi-deauth-attack-red](https://github.com/SecuredByKC/wifi-deauth-attack-red)**.
 
 ---
